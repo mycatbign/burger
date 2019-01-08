@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
     host: 'localhost',          // hostname of burgers_db
     port: 3306,                 // mysql port if not 3306
     user: 'root',               // mysql username
-    password: 'yourkey',        // mysql password from .env using dotenv
+    password: 'yourpswd',        // mysql password from .env using dotenv
     database: 'burgers_db'      // we are connecting to burgers_db
 });
 
