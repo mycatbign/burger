@@ -1,0 +1,86 @@
+<div class="container">
+
+    <!-- create row to display the burger image and title -->
+    <div class="row">
+        <div class="col-lg-12" align="center">
+            <br>
+            <img src="assets/img/burger.png" alt="burger.png image not loaded">
+            <h1>Let's Eat-Da-Burger!</h1>
+        </div>
+    </div>
+    <!-- end row -->
+
+    <!-- create row to display burgers that can be or have been devaoured -->
+    <!-- row contains two columns - first = to be devoured, second = devoured -->
+    <div class="row">
+
+        <!-- first column displays burgers that have yet to be devoured -->
+        <!-- from the database and provides a devour button on each -->
+        <div class="col-lg-6">
+            <br>
+            <h4 align="center">...burgers to be devoured</h4>
+            <!-- make list of burgers to be filled via handlebars -->
+            <ul>
+                {{#each burgers}}
+                <!-- handlebar helper #unless because we only want burgers that are not yet devoured -->
+                <!-- (therefore devoured = false) -->
+                {{#unless this.devoured}}
+                <li>
+                    <!-- add a devour button on each burger that the user can click -->
+                    <!-- button will update the devour boolean column for the burger -->
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+
+                    {{this.id}} - {{this.burger_name}}
+                        <input type="hidden" name="devoured" value="true">
+                        <button class="btn-sm btn-outline-danger rounded" type="submit">Devour It !</button>
+                    </form>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <!-- end first column of burgers that have yet to be devoured -->
+
+        <!-- second column displays burgers that have been devoured -->
+        <!-- from the database and provides a devour button on each -->
+        <div class="col-lg-6">
+            <br>
+            <h4 align="center">...burgers already devoured</h4>
+            <!-- make list of burgers to be filled via handlebars -->
+            {{#each burgers}}
+            <!-- only want burgers that have been devoured already (therefore devoured = true) -->
+            {{#if this.devoured}}
+            <li>
+                    <!-- add an "undevour" button on each burger that the user can click -->
+                    <!-- button will update the devour boolean column for the burger -->
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                    {{this.id}} - {{this.burger_name}}
+                        <input type="hidden" name="devoured" value="false">
+                        <button class="btn-sm btn-outline-danger rounded" type="submit">Un Devour !</button>
+                    </form>
+            </li>
+            {{/if}}
+            {{/each}}
+        </div>
+        <!-- end second column of burgers that have already been devoured -->
+
+    </div>
+    <!-- end burger display from burgers_db -->
+
+    <!-- display the option to add a new burger that the uswer would like to devour -->
+    <div class="row">
+        <div class="col-lg-12" align="center">
+            <h4>Add a new Burger!</h4>
+            <form action="/" method="POST">
+                <div>
+                    <input type="text" name="burger_name">
+                </div>
+                <p></p>
+                <button class="btn-sm btn-primary" type="submit">Submit</button>
+                <p>Enter a burger you want to eat then click 'Submit' button.</p>
+            </form>
+        </div>
+    </div>
+    <!-- end adding a new burger -->
+
+</div>

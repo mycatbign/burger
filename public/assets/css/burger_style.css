@@ -1,0 +1,21 @@
+body {
+    background-color: tan;
+}
+
+li {
+    list-style: none;
+    border: 1px solid black;
+    padding: 3px;
+    margin: 2px;
+    background-color: white;
+    border-radius: 10px;    
+  }
+
+img {
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
