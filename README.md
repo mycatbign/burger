@@ -17,7 +17,7 @@ and of course there is some HTML and CSS.
 Eat-Da-Burger! is designed with MVC in mind. Our model is housed within the burger.js file within the Models directory. Views are held within the views folder and our controllers are all housed within burgers_controller.js. 
 
 ## Demo
-You can demo Eat-Da-Burger! [here]().
+You can demo Eat-Da-Burger! [here](https://intense-everglades-23619.herokuapp.com/).
 
 ## Additional Tasks to be Completed
 - [ ] UI needs to be cleaned up.
