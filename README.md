@@ -2,7 +2,8 @@
 
 ## Description
 Eat-Da-Burger! is an app that lets users input the names of burgers they would like to eat. After adding a burger - it will appear in a list on the left side of the screen with a button that allows the user to "devour" it. Once the user decides to devour the burger - it will be moved to a list on the  right side of the screen. 
-"Eat-Da-Burger! Main Screen"![](./public/assets/img/EatDaBurger_Main_Screen.PNG)
+"Eat-Da-Burger! Main Screen"
+![](./public/assets/img/EatDaBurger_Main_Screen.png)
 
 ## Tools Used
 This simple full stack app is architected in MVC and written in JavaScript using the following:
