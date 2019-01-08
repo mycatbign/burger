@@ -15,13 +15,23 @@
 
 // set up the connection object to our mysql database
 var mysql = require('mysql');   // use node.js driver for mysql
-var connection = mysql.createConnection({
-    host: 'localhost',          // hostname of burgers_db
-    port: 3306,                 // mysql port if not 3306
-    user: 'root',               // mysql username
-    password: 'yourpswd',        // mysql password from .env using dotenv
-    database: 'burgers_db'      // we are connecting to burgers_db
-});
+var connection;
+
+// connection below is for both heroku and local
+// if heroku finds environment variable on server it will execute if
+// if not - it will execute the else portion assuming local host
+if (process.env.JAWSDB_URL) {
+    connection = mysql.createConnection(process.env.JAWSDB_URL);
+} else {
+    // JBOND local connection 
+    connection = mysql.createConnection({
+        host: 'localhost',          // hostname of burgers_db
+        user: 'root',               // mysql username
+        port: 3306,                 // mysql port if not 3306
+        password: 'needmypswd',     // mysql password 
+        database: 'burgers_db'      // we are connecting to burgers_db
+    });
+};
 
 // connect to the burgers_db database (use err callback function)
 connection.connect(function (err) {
